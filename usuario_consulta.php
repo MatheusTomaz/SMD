@@ -13,15 +13,14 @@
             <h2 align="center">Consulta de Usuários</h2>
             <br/>
             <br/>
-            <div class="margem" align="left">
-                <form name="usuario_cadastro">
-                	<table align="left">
-                    	<tr>
-                        	<td>Nome:</td>
-                            <td><input name="name" type="text" size="60"></td><input class="btn" name="buscar" value="Buscar" type="submit"><input class="btn" name="voltar" value="Voltar" type="button" onClick="location.href='SMD_principal.php'">
-                        </tr>
-                    </table>     
-                    <br/>
+            <div>
+                <form class="form-search" name="usuario_cadastro">
+                	<div class="text-center">
+ 						<input name="usuario_buscaFORM" type="text" class="input-medium search-query">
+ 						<input name="buscar" type="submit" class="btn" value="Buscar">
+   						<input name="voltar" type="button" class="btn" value="Voltar">
+
+                    </div>    
                     
                 </form>
             </div> 
