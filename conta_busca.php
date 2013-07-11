@@ -3,24 +3,22 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>SMD</title>
-        <link href="css/menu_css.css" rel="stylesheet" type="text/css" />
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
+        
 	</head>
-	<body class="corp">
+	<body class="fundo">
     	<div class="hero-unit2">
             <h2 align="center">Pesquisa de Contas</h2>
             <br/>
             <br/>
-            <div class="margem" align="left">
-                <form name="usuario_cadastro">
-                	<table align="center">
-                    	<tr>
-                        	<td><input name="busca" type="text"/></td>
-                            <td valign="top"><input name="buscar" value="Buscar" type="button" class="btn"/></td>
-                        </tr>
-                    </table>
+            <div>
+                <form class="form-search" name="usuario_cadastro">
+                	<div class="text-center">
+ 						<input type="text" class="input-medium search-query">
+ 						<input type="submit" class="btn" value="Pesquisa">
+                    </div>    
                     <br/>
-					<table class="table table-hover">
+					<table class="table table-hover" style="background:#F8F8F8;">
                        	<tr>
                         	<td><h4>Conta</h4></td>
                             <td><h4>Nome</h4></td>

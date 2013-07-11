@@ -1,9 +1,10 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
 <body> 
 	<div class="navbar">  
-        <div class="navbar-inner">  
+        <div class="navbar-inner" style="width:80%; padding:0 10% 0 10%;">  
             <div class="container">  
-                <ul class="nav">  
+                <ul class="nav">
+                	<a class="brand" href="#">SMD</a>  
                     <li><a href="SMD_principal.php" target="conteudo">Home</a></li>  
                     <li class="dropdown" id="accountmenu">  
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuário<b class="caret"></b></a>  

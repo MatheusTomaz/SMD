@@ -10,27 +10,19 @@
 		}
 	</script>
 	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0; text/html; charset=utf-8">
         <title>SMD</title>
-        <link href="css/SMD_css.css" rel="stylesheet" type="text/css" />
+        <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
     </head>
 	<body style="overflow:hidden;" onResize=" frameResize(); " scroll=no >
- 		<div align="center">
-        	<div class="corp">
-            	<div class="topo">
-                	<? include("topo.php"); ?>
-                </div>
-                <div class="menu">
-                	<? include("menu.php"); ?>
-                </div>
-                <div class="conteudo">
-                	<IFRAME id="frame" src="SMD_principal.php" name="conteudo" width="100%" height="100%" scrolling="auto" frameborder="0"  align="center" >
-                    </IFRAME>
-                </div>                
-                <div class="rodape">
-                    <?php include 'rodape.php'?>
-                </div>
-            </div>
+ 		<div style="height:30px; z-index:2; position:relative">
+        	<? include("menu.php"); ?>
+        </div>
+        <div class="row" style="z-index:1;">
+        	<div style="width:80%; padding:0 10% 0 10%;">
+              	<IFRAME id="frame" src="SMD_principal.php" name="conteudo" width="100%" height="100%" scrolling="auto" frameborder="0"  align="center" >
+                </IFRAME>
+            </div>                
         </div>
         <script>
 			frameResize();
