@@ -18,11 +18,9 @@
  		<div style="height:30px; z-index:2; position:relative">
         	<? include("menu.php"); ?>
         </div>
-        <div class="row" style="z-index:1;">
-        	<div style="width:80%; padding:0 10% 0 10%;">
-              	<IFRAME id="frame" src="SMD_principal.php" name="conteudo" width="100%" height="100%" scrolling="auto" frameborder="0"  align="center" >
-                </IFRAME>
-            </div>                
+        <div class="row" style="z-index:1; padding: 0 10% 0 10%;">
+            <IFRAME id="frame" src="SMD_principal.php" name="conteudo" width="100%" height="100%" scrolling="auto" frameborder="0"  align="center" >
+        	</IFRAME>
         </div>
         <script>
 			frameResize();
