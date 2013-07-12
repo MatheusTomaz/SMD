@@ -32,22 +32,25 @@
                         	<td>01</td>
                             <td>Matheus Araújo Tomaz</td>
                             <td>R$ 500,00</td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="#"><img src="images/7662_64x64.png" width="20" height="20" title="detalhes"/></a></td>
+                            <td><a href="conta_operacoes.php" target="conteudo"><img src="images/gear_92009.jpg" width="20" height="20" title="operações"/></td>
+                            <td><a href="#"><img src="images/11292_128x128.png" width="20" height="20" title="excluir"/></td>
                         </tr>
                         <tr>
                         	<td>02</td>
                             <td>Carlos Henrique Pereira</td>
                             <td>R$ 1.000,00</td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="#"><img src="images/7662_64x64.png" width="20" height="20" title="detalhes"/></a></td>
+                            <td><a href="conta_operacoes.php" target="conteudo"><img src="images/gear_92009.jpg" width="20" height="20" title="operações"/></td>
+                            <td><a href="#"><img src="images/11292_128x128.png" width="20" height="20" title="excluir"/></td>
                         </tr>
                         <tr>
                         	<td>03</td>
                             <td>Marcelo Augusto da Silva</td>
                             <td>R$ 5.300,00</td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="#"><img src="images/7662_64x64.png" width="20" height="20" title="detalhes"/></a></td>
+                            <td><a href="conta_operacoes.php" target="conteudo"><img src="images/gear_92009.jpg" width="20" height="20" title="operações"/></td>
+                            <td><a href="#"><img src="images/11292_128x128.png" width="20" height="20" title="excluir"/></td>
                         </tr>
                     </table>
                     <div align="center">

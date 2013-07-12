@@ -20,14 +20,15 @@
                          </ul>
                     </li>
                     <div style=" padding:0px 0px 0px 85%;">
-                        <ul class="nav">
-                            <li class="dropdown" id="accountmenu">
-                            	<a class="dropdown-toggle" data-toogle="dropdown" href="#">Matheus Tomaz<b class="caret"></b></a>
-                                <ul class="dropdown-menu">  
-                                    <li class="text-left"><a href="#">Sair</a></li>  
-                                </ul>
-                            </li>
-                        </ul>    
+                        <div class="btn-group">
+                            <button class="btn">Matheus Tomaz</button> 
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">  
+                                <li class="text-left"><a href="#">Sair</a></li>
+                            </ul>
+                        </div>        
                     </div>
                 </ul>  
             </div>  
