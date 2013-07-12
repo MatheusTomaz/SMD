@@ -19,13 +19,15 @@
                     </div>    
                     <br/>
 					<table class="table table-hover" style="background:#F8F8F8;">
-                       	<tr>
-                        	<td><h4>Conta</h4></td>
-                            <td><h4>Nome</h4></td>
-                            <td><h4>Saldo</h4></td>
-                            <td></td>
-                            <td></td>
+                       	<thead>
+                        <tr>
+                        	<th>Conta</th>
+                            <th>Nome</th>
+                            <th>Saldo</th>
+                            <th></th>
+                            <th></th>
                         </tr>
+                        </thead>
                         <tr>
                         	<td>01</td>
                             <td>Matheus Araújo Tomaz</td>

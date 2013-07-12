@@ -4,7 +4,7 @@
         <div class="navbar-inner" style="width:80%; padding:0 10% 0 10%;">  
             <div class="container">  
                 <ul class="nav">
-                	<a class="brand" href="#">SMD</a>  
+                	<a class="brand" href="#"><b>SMD</b></a>  
                     <li><a href="SMD_principal.php" target="conteudo">Home</a></li>  
                     <li class="dropdown" id="accountmenu">  
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuário<b class="caret"></b></a>  
@@ -18,7 +18,17 @@
                          <ul class="dropdown-menu">  
                             <li class="text-left"><a href="conta_busca.php" target="conteudo">Busca</a></li>  
                          </ul>
-                    </li>    
+                    </li>
+                    <div style=" padding:0px 0px 0px 85%;">
+                        <ul class="nav">
+                            <li class="dropdown" id="accountmenu">
+                            	<a class="dropdown-toggle" data-toogle="dropdown" href="#">Matheus Tomaz<b class="caret"></b></a>
+                                <ul class="dropdown-menu">  
+                                    <li class="text-left"><a href="#">Sair</a></li>  
+                                </ul>
+                            </li>
+                        </ul>    
+                    </div>
                 </ul>  
             </div>  
         </div>  
