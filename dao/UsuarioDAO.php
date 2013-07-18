@@ -23,5 +23,10 @@
             return $query;
         }
         
+        public function buscarUsuario($nome){
+            $query = mysql_query("SELECT * FROM usuario WHERE nome like '%$nome%'");
+            return $query;
+        }
+        
     }
 ?>

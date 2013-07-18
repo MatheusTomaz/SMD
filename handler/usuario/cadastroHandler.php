@@ -1,5 +1,4 @@
 <?php
-    
     require_once('../bean/bean.php');
     require_once('../dao/UsuarioDAO.php');
     
@@ -22,23 +21,17 @@
             $this->usuario->setGrupo($_POST['grupo']);
             
             if(isset($_POST['acao'])){
-                $acao = $_POST['acao'];
+ 
+                $this->cadastrar();
 
-                switch($acao){
-                    case "setUsuario":{
-                        $this->cadastrar();
-                    }
-                    break;
-
-                    case "getUsuario":{
+                /*    case "getUsuario":{
                         $getUsuario = new usuario;
                         $getUsuario->nome = $_POST['nome'];
 
                         $getUsuario->getUsuario();
                         $getUsuario->relatorio;
                     }
-                    break;
-                }
+                    break;*/
             }
         }
         
@@ -54,7 +47,6 @@
                 $this->msg = "Login/Email já existente!";
             }
         }
-    
     
     }
 ?>

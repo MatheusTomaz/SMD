@@ -1,16 +1,17 @@
 ﻿<?php
 // Informações para conexão
-/*
+///*
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'bd_smd'
- */
+$banco = 'bd_smd';
+        //*/
+ /*
 $host = 'mysql.hostinger.com.br';
 $usuario = 'u101465857_math';
 $senha = 'respeitoex11';
 $banco = 'u101465857_smd';
- 
+ */
 // Realizando conexão e selecionando o banco de dados
 $conn = mysql_connect($host, $usuario, $senha) or die(mysql_error());
 $db = mysql_select_db($banco, $conn) or die(mysql_error());

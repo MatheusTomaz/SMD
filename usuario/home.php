@@ -15,7 +15,7 @@
     </head>
     <body class="fundo">
     	<div class="hero-unit">
-            <h1>Matheus Araújo Tomaz</h1>
+            <h1><?=$login->nome;?></h1>
             <br/>
                 Saldo:<br/><input type="text" disabled value="R$ 500,00" style="color:#00CC00;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='#'" name="extrato">Extrato</button>
             <br/>

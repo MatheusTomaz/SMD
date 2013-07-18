@@ -1,10 +1,14 @@
 <?php
-    require_once('../handler/usuario/cadastroHandler.php');
     define( 'DS', DIRECTORY_SEPARATOR );
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    
+    require_once('../handler/usuario/consultaHandler.php');
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    
     $login = new LoginHandler();
     $login->verificar();
+    
+    $usuarioD = new consultaHandler();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,36 +24,18 @@
         <br/>
         <br/>
         <div>
-            <form name="usuario_consulta" action="<? $SELF_PHP;?>?acao=getUsuario" method="POST">
+            <form name="usuario_consulta" action="consulta.php" method="POST">
                 <div class="text-center">
-                    <input name="usuario_buscaFORM" type="text" class="input-medium search-query">
+                    <input name="usuario_busca" type="text" class="input-medium search-query">
+                    <input type="hidden" value="getUsuario" name="acao"/>
                     <input name="buscar" type="submit" class="btn" value="Buscar">
                     <input name="voltar" type="button" class="btn" value="Voltar" onClick="location.href='../assets/smd_principal.php'">
                 </div>
                 
                 <br/>
-                <table class="table table-hover" style="background:#F8F8F8;">
-                    <thead>
-                        <tr>
-                            <th>Conta</th>
-                            <th>Nome</th>
-                            <th>Login</th>
-                            <th>E-mail</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>02</td>
-                        <td>Carlos Henrique Pereira</td>
-                        <td>CarlosHenrique</td>
-                        <td>carloshenrique@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>03</td>
-                        <td>Marcelo Augusto da Silva</td>
-                        <td>MarceloAugusto</td>
-                        <td>marceloaugusto@hotmail.com</td>
-                    </tr>
-                </table>    
+                <div class="<?=$usuarioD->class;?>" align="center"><?=$usuarioD->msg;?></div>
+                <br>
+                <?=$usuarioD->relatorio;?>
             </form>
         </div> 
     </body>
