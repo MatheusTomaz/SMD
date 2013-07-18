@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>SMD</title>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
+        <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
     </head>
     <body class="fundo">
     	<div class="hero-unit2">
