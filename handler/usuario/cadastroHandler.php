@@ -1,6 +1,6 @@
 <?php
     
-    require_once('class/usuario.class.php');
+    require_once('../bean/bean.php');
     require_once('../dao/UsuarioDAO.php');
     
     class cadastroHandler{
@@ -44,11 +44,7 @@
         
         function validarDados(){
             $res = $this->usuarioDAO->recuperarUsuario($this->usuario->getLogin(), $this->usuario->getEmail());
-            if(mysql_num_rows($res)>0){
-                return true;
-            }else{
-                return false;
-            }
+            return (mysql_num_rows($res)>0);
         }
                 
         function cadastrar(){

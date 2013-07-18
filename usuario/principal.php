@@ -1,13 +1,9 @@
 <?php
-    require_once('../assets/config/conn.php');
-    
-    $objLogin = new Login();
-
-    if (!$objLogin->verificar('../index.php'))
-        exit;
-
-    $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = {$objLogin->getID()}");
-    $usuario = mysql_fetch_object($query);
+    define( 'DS', DIRECTORY_SEPARATOR );
+    define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    $login = new LoginHandler();
+    $login->verificar();
 ?>
 <!DOCTYPE html>
 <html>

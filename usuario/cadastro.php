@@ -1,5 +1,4 @@
 <?php
-    require_once('../assets/config/conn.php');
     require_once('../handler/usuario/cadastroHandler.php');
     
     $usuarioD = new cadastroHandler();

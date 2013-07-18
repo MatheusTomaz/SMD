@@ -1,24 +1,24 @@
 <?php
-    require_once('../assets/config/conn.php');
+    define( 'DS', DIRECTORY_SEPARATOR );
+    define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
     
-    $objLogin = new Login();
-
-    if (!$objLogin->verificar('../index.php'))
-        exit;
-
-    $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = {$objLogin->getID()}");
-    $usuario = mysql_fetch_object($query);
+    require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    
+    $login = new LoginHandler();
 ?>
+
 <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
 <body> 
     <div class="navbar"> 
         <div class="btn-group" style="float:right; padding:0 10% 0 0;">
-            <a class="btn" target="frame" href="../usuario/home.php"><i class="icon-user"></i> <?=$usuario->nome;?></a>
+            <a class="btn" target="frame" href="../usuario/home.php"><i class="icon-user"></i> <?=$login->nome;?></a>
             <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-th-list"></i></button>
             <ul class="dropdown-menu">
                 <li class="text-left"><a href="#">Configurações de Conta</a></li>
                 <li class="divider"></li>
-                <li class="text-right"><a href="#"><i class="icon-off"></i> Sair</a></li>
+                <li class="text-right">
+                    <a href="principal.php?logout=1"><i class="icon-off"></i> Sair</a>
+                </li>
             </ul>
         </div>     
         <div class="navbar-inner" style="width:80%; padding:0 10% 0 10%;">
