@@ -5,7 +5,6 @@
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
     $login->verificar();
-   
 ?>
 <!DOCTYPE html>
 <html>

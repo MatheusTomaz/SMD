@@ -1,6 +1,10 @@
 <?php
     require_once('../handler/usuario/cadastroHandler.php');
-    
+    define( 'DS', DIRECTORY_SEPARATOR );
+    define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    $login = new LoginHandler();
+    $login->verificar();
     $usuarioD = new cadastroHandler();
 ?>
 <!DOCTYPE html>
