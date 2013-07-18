@@ -39,7 +39,8 @@
                     </tr>
                 </table>
                 <div align="center">
-                    <input name="gravar" value="Gravar" class="btn" type="submit"><input name="voltar" value="Voltar" class="btn" type="button" onClick="location.href='SMD_principal.php'">
+                    <input name="gravar" value="Gravar" class="btn" type="submit">
+                    <input name="voltar" value="Voltar" class="btn" type="button" onClick="location.href='../assets/SMD_principal.php'">
                 </div>
                 <br/>
             </form>

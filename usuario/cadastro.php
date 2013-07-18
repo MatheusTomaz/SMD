@@ -18,7 +18,7 @@
         <div class="hero-unit2">
             <h2 align="center">Cadastro de Usuários</h2>
             <br/>
-            <div align="center" class="text-error"><?=$usuarioD->msg?></div>
+            <div align="center" class="<?=$usuarioD->class?>"><?=$usuarioD->msg?></div>
             <br/>
             <div>
                 <form name="usuario_cadastro" action="cadastro.php" method="POST">

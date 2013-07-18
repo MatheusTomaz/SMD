@@ -2,16 +2,16 @@
     require_once('../bean/bean.php');
     require_once('../dao/UsuarioDAO.php');
     
-    class consultaHandler{
+    class buscaHandler{
         
         public $relatorio, $msg, $numRes, $class;
         private $usuario, $usuarioDAO;
         
-        function consultaHandler($grupo){
+        function buscaHandler($grupo){
             $this->usuarioDAO = new UsuarioDAO();
             
             $this->usuario = new Usuario();
-            $this->usuario->setNome(utf8_decode($_POST['usuario_busca']));
+            $this->usuario->setNome(utf8_decode($_POST['busca']));
             
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
@@ -78,12 +78,6 @@
             }
         }
         
-        function excluirUsuario($id){
-            $res = $this->usuarioDAO->excluirUsuario($id);
-            if($res){
-                $this->class = 'text-success';
-                $this->msg = 'Usuário Excluído com sucesso!';
-            }
-        }
+        
     }
 ?>

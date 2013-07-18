@@ -8,9 +8,16 @@
     $login = new LoginHandler();
     $login->verificar();
     
-    $usuarioD = new consultaHandler();
+    $usuarioD = new consultaHandler($login->grupo);
 ?>
 <!DOCTYPE html>
+    <script type="text/javascript">
+        function del(id) {    
+            if (confirm('Excluir usuário?')) {    
+                location.href = 'consulta.php?&id=' + id;  
+            }  
+        }  
+    </script>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -28,7 +35,7 @@
                 <div class="text-center">
                     <input name="usuario_busca" type="text" class="input-medium search-query">
                     <input type="hidden" value="getUsuario" name="acao"/>
-                    <input name="buscar" type="submit" class="btn" value="Buscar">
+                    <input name="buscar" type="submit" class="btn" value="Buscar" onClick="javascript:confirm()">
                     <input name="voltar" type="button" class="btn" value="Voltar" onClick="location.href='../assets/smd_principal.php'">
                 </div>
                 

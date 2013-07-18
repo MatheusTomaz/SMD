@@ -4,7 +4,7 @@
     
     class cadastroHandler{
         
-        public $msg;
+        public $msg, $class;
         
         private $usuario, $usuarioDAO;
     
@@ -21,17 +21,7 @@
             $this->usuario->setGrupo($_POST['grupo']);
             
             if(isset($_POST['acao'])){
- 
                 $this->cadastrar();
-
-                /*    case "getUsuario":{
-                        $getUsuario = new usuario;
-                        $getUsuario->nome = $_POST['nome'];
-
-                        $getUsuario->getUsuario();
-                        $getUsuario->relatorio;
-                    }
-                    break;*/
             }
         }
         
@@ -42,11 +32,18 @@
                 
         function cadastrar(){
             if(!$this->validarDados()){
-                $this->usuarioDAO->cadastrar($this->usuario);
+                $query = $this->usuarioDAO->cadastrar($this->usuario);
+                if($query){
+                    $this->class = "text-success";
+                    $this->msg = "Cadastro realizado com sucesso!";
+                }else{
+                    $this->class = "text-error";
+                    $this->msg = "Erro ao cadastrar!";
+                }
             }else{
+                $this->class = "text-error";
                 $this->msg = "Login/Email já existente!";
             }
         }
-    
     }
 ?>

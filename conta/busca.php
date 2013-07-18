@@ -1,9 +1,12 @@
 <?php
     define( 'DS', DIRECTORY_SEPARATOR );
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    require_once('../handler/usuario/consultaHandler.php');
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
     $login->verificar();
+    
+    $usuarioD = new consultaHandler($login->grupo);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +23,7 @@
             <div>
                 <form class="form-search" name="usuario_cadastro">
                     <div class="text-center">
-                        <input type="text" class="input-medium search-query">
+                        <input type="text" class="input-medium search-query" name='busca'>
                         <input type="submit" class="btn" value="Pesquisa">
                         <input name="voltar" type="button" class="btn" value="Voltar" onClick="location.href='../assets/smd_principal.php'">
                     </div>    

@@ -43,6 +43,7 @@
             $res = $this->usuarioDAO->recuperarUsuario($this->login->getLogin(), nao);
             $row = mysql_fetch_array($res);
             $this->nome = $row["nome"];
+            $this->grupo = $row["grupo"];
         }
                 
         function verificar(){

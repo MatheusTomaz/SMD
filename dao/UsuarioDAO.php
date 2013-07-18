@@ -18,13 +18,18 @@
             '{$usuario->getSenha()}',
             '{$usuario->getEmail()}',
             '{$usuario->getTelefone()}',
-            '{$usuario->getGrupo()}')");
+            '{$usuario->getGrupo()}', 0)");
             
             return $query;
         }
         
         public function buscarUsuario($nome){
             $query = mysql_query("SELECT * FROM usuario WHERE nome like '%$nome%'");
+            return $query;
+        }
+        
+        public function excluirUsuario($id){
+            $query = mysql_query("DELETE FROM usuario WHERE cod_usuario = '$id'");
             return $query;
         }
         
