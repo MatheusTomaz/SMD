@@ -2,7 +2,7 @@
     define( 'DS', DIRECTORY_SEPARATOR );
     define( 'BASE_DIR', dirname( dirname( __FILE__ ) ) . DS );
     
-    require_once BASE_DIR . 'assets' . DS . 'config' . DS . 'conn.php';
+    require_once BASE_DIR . 'config' . DS . 'conn.php';
     require_once BASE_DIR . 'bean' . DS . 'bean.php';
     require_once BASE_DIR . 'dao' . DS . 'UsuarioDAO.php';
     

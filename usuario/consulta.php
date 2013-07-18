@@ -1,14 +1,11 @@
 <?php
-    require_once('../assets/config/conn.php');
     require_once('../handler/usuario/cadastroHandler.php');
-    
-    $objLogin = new Login();
-
-    if (!$objLogin->verificar('../index.php'))
-        exit;
-
-    $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = {$objLogin->getID()}");
-    $usuarioH = mysql_fetch_object($query);
+    define( 'DS', DIRECTORY_SEPARATOR );
+    define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    $login = new LoginHandler();
+    $login->verificar();
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,12 +38,6 @@
                             <th>E-mail</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <? 
-                            $usuarioD = new usuario();
-                            $usuarioD->getUsuario();
-                        ?>
-                    </tr>
                     <tr>
                         <td>02</td>
                         <td>Carlos Henrique Pereira</td>
