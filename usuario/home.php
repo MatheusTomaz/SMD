@@ -1,9 +1,13 @@
 <?php
     define( 'DS', DIRECTORY_SEPARATOR );
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
+    
+    require_once('../handler/usuario/homeHandler.php');
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
     $login->verificar();
+            
+    $usuarioD = new homeHandler($login->id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +21,7 @@
     	<div class="hero-unit">
             <h1><?=$login->nome;?></h1>
             <br/>
-                Saldo:<br/><input type="text" disabled value="R$ 500,00" style="color:#00CC00;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='#'" name="extrato">Extrato</button>
+                Saldo:<br/><input type="text" disabled value="R$ <?=$usuarioD->saldo;?>" style="color:<?=$usuarioD->color;?>;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='#'" name="extrato">Extrato</button>
             <br/>
             <hr/>
         </div>

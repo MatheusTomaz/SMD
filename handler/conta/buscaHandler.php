@@ -7,24 +7,19 @@
         public $relatorio, $msg, $numRes, $class;
         private $usuario, $usuarioDAO;
         
-        function buscaHandler($grupo){
+        function buscaHandler(){
             $this->usuarioDAO = new UsuarioDAO();
             
             $this->usuario = new Usuario();
             $this->usuario->setNome(utf8_decode($_POST['busca']));
             
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $this->excluirUsuario($id);
-            }
-            
             if(isset($_POST['acao'])){
-                $this->buscarUsuario($grupo);
-                
+                $this->buscarUsuario();
             }
+                
         }
         
-        function buscarUsuario($grupo){
+        function buscarUsuario(){
             $query = $this->usuarioDAO->buscarUsuario($this->usuario->getNome());
             $numRes = mysql_num_rows($query);
             $this->numRes = $numRes;
@@ -32,41 +27,20 @@
                 $this->relatorio .= "<table class='table table-hover' style='background:#F8F8F8;'>";
                 $this->relatorio .= "<thead>";
                 $this->relatorio .= "<tr>";
-                $this->relatorio .= "<th>Conta</th>";
-                $this->relatorio .= "<th>Nome</th>";
+                $this->relatorio .= "<th style='text-align:center; vertical-align:middle;'>Conta</th>";
+                $this->relatorio .= "<th style='vertical-align:middle;'>Nome</th>";
+                $this->relatorio .= "<th style='text-align:center; vertical-align:middle;'>Saldo</th>";
+                $this->relatorio .= "</thead>";
                 
-                if($grupo == 'Admin'){
-                    $this->relatorio .= "<th>Login</th>";
-                    $this->relatorio .= "<th>E-mail</th>";
-                    $this->relatorio .= "<th>Grupo</th>";
-                    $this->relatorio .= "</tr>";
-                    $this->relatorio .= "</thead>";
-                    while ($row = mysql_fetch_array($query)) {
+                while ($row = mysql_fetch_array($query)) {
                         $this->relatorio .= "<tr>";
-                        $this->relatorio .= "<td>{$row['cod_usuario']}</td>";
-                        $this->relatorio .= "<td>{$row["nome"]}</td>";
-                        $this->relatorio .= "<td>{$row['login']}</td>";
-                        $this->relatorio .= "<td>{$row['email']}</td>";
-                        $this->relatorio .= "<td>{$row['grupo']}</td>";
-                        $this->relatorio .= "<td><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
+                        $this->relatorio .= "<td style='text-align:center; vertical-align:middle;'>{$row['cod_usuario']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row["nome"]}</td>";
+                        $this->relatorio .= "<td style='text-align:center; vertical-align:middle;'>{$row['saldo']}</td>";
+                        $this->relatorio .= "<td style='text-align:center; vertical-align:middle;'><a class='btn' href='extrato.php?&id={$row['cod_usuario']})'>Extrato</a></td>";
                         $this->relatorio .= "</tr>";
-                    }
-                }elseif($grupo == 'User') {
-                    $this->relatorio .= "<th>E-mail</th>";
-                    $this->relatorio .= "</tr>";
-                    $this->relatorio .= "</thead>";
-                    while ($row = mysql_fetch_array($query)) {
-                        $this->relatorio .= "<tr>";
-                        $this->relatorio .= "<td>{$row['cod_usuario']}</td>";
-                        $this->relatorio .= "<td>{$row["nome"]}</td>";
-                        $this->relatorio .= "<td>{$row['email']}</td>";
-                        $this->relatorio .= "<td><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
-                        $this->relatorio .= "</tr>";
-                    }
                 }
+               
             
                 $this->relatorio .= "</table>";
                 $this->class = "text-success";

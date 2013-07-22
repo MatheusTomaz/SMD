@@ -19,8 +19,8 @@
             <div align="center">
                 <select>
                     <option selected value="">Selecione a operação</option>
-                    <option value="opa">Empréstimo</option>
-                    <option value="opa">Pagamento</option>
+                    <option value="Emprestimo">Empréstimo</option>
+                    <option value="Pagamento">Pagamento</option>
                 </select>
             </div>
             <form name="usuario_cadastro">
@@ -29,13 +29,13 @@
                         <td>Nome:</td>
                         <td><input name="name" type="text" disabled value="Matheus Araújo Tomaz"size="60"></td>
                         <td> Saldo:</td>
-                        <td><input name="name" type="text" disabled value="R$ 500,00" style="color:#00CC00;" size="60"></td>
+                        <td><input name="saldo" type="text" disabled value="R$ 500,00" style="color:#00CC00;" size="60"></td>
                     </tr>
                     <tr>
                         <td>Descrição:</td>
-                        <td><input name="name" type="text" size="60"></td>
+                        <td><input name="descricao" type="text" size="60"></td>
                         <td> Valor:</td>
-                        <td><input name="name" type="text" size="60"></td>
+                        <td><input name="valor" type="text" size="60"></td>
                     </tr>
                 </table>
                 <div align="center">

@@ -24,12 +24,17 @@
         }
         
         public function buscarUsuario($nome){
-            $query = mysql_query("SELECT * FROM usuario WHERE nome like '%$nome%'");
+            $query = mysql_query("SELECT * FROM usuario WHERE nome like '%$nome%' and nome != 'Administrador'");
             return $query;
         }
         
         public function excluirUsuario($id){
             $query = mysql_query("DELETE FROM usuario WHERE cod_usuario = '$id'");
+            return $query;
+        }
+        
+        public function selecionaID($id){
+            $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = '$id'");
             return $query;
         }
         

@@ -8,7 +8,7 @@
     
     class LoginHandler{
         
-        public $msg, $nome, $grupo;
+        public $msg, $nome, $grupo, $id;
         private $login, $usuario, $usuarioDAO;
         
         function LoginHandler(){
@@ -29,6 +29,8 @@
             
             $logout = $_GET['logout'];
             $this->logout($logout);
+            
+            $this->id = $this->login->getID();
         }            
         
         function autenticar(){

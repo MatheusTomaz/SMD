@@ -20,6 +20,6 @@ $charset = mysql_set_charset('utf8');
 // Função para carregar a classe automaticamente, quando instanciado o objeto
 function __autoload($class)
 {
-    require_once(dirname(__FILE__) . "/../class/{$class}.class.php");
+    require_once(dirname(__FILE__) . "/../class/Login.class.php");
 }
 ?>

@@ -32,7 +32,7 @@
                 $this->relatorio .= "<table class='table table-hover' style='background:#F8F8F8;'>";
                 $this->relatorio .= "<thead>";
                 $this->relatorio .= "<tr>";
-                $this->relatorio .= "<th>Conta</th>";
+                $this->relatorio .= "<th style='text-align:center; vertical-align:middle;'>Conta</th>";
                 $this->relatorio .= "<th>Nome</th>";
                 
                 if($grupo == 'Admin'){
@@ -43,14 +43,14 @@
                     $this->relatorio .= "</thead>";
                     while ($row = mysql_fetch_array($query)) {
                         $this->relatorio .= "<tr>";
-                        $this->relatorio .= "<td>{$row['cod_usuario']}</td>";
-                        $this->relatorio .= "<td>{$row["nome"]}</td>";
-                        $this->relatorio .= "<td>{$row['login']}</td>";
-                        $this->relatorio .= "<td>{$row['email']}</td>";
-                        $this->relatorio .= "<td>{$row['grupo']}</td>";
-                        $this->relatorio .= "<td><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
+                        $this->relatorio .= "<td style='text-align:center; vertical-align:middle;'>{$row['cod_usuario']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row["nome"]}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row['login']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row['grupo']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
                         $this->relatorio .= "</tr>";
                     }
                 }elseif($grupo == 'User') {
@@ -59,11 +59,11 @@
                     $this->relatorio .= "</thead>";
                     while ($row = mysql_fetch_array($query)) {
                         $this->relatorio .= "<tr>";
-                        $this->relatorio .= "<td>{$row['cod_usuario']}</td>";
-                        $this->relatorio .= "<td>{$row["nome"]}</td>";
-                        $this->relatorio .= "<td>{$row['email']}</td>";
-                        $this->relatorio .= "<td><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle; text-align:center;'>{$row['cod_usuario']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row["nome"]}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
                         $this->relatorio .= "</tr>";
                     }
                 }
