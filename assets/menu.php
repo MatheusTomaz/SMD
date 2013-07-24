@@ -14,7 +14,7 @@
             <a class="btn" target="frame" href="../usuario/home.php"><i class="icon-user"></i> <?=$login->nome;?></a>
             <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-th-list"></i></button>
             <ul class="dropdown-menu">
-                <li class="text-left"><a href="#">Configurações de Conta</a></li>
+                <li class="text-left"><a href="../usuario/confConta.php" target="frame">Configurações de Conta</a></li>
                 <li class="divider"></li>
                 <li class="text-right">
                     <a href="principal.php?logout=1"><i class="icon-off"></i> Sair</a>

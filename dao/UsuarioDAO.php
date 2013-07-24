@@ -9,6 +9,11 @@
             $query = mysql_query("SELECT * FROM usuario WHERE login = '$login' OR email = '$email'");
             return $query;
         }
+        
+        public function recuperaLoginEmail($login, $email){
+            $query = mysql_query("SELECT * FROM usuario WHERE (login = '$login' OR email = '$email') and cod_usuario != '$id'");
+            return $query;
+        }
 
         public function cadastrar($usuario){
             $nome = utf8_encode($usuario->getNome());
@@ -35,6 +40,17 @@
         
         public function selecionaID($id){
             $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = '$id'");
+            return $query;
+        }
+        
+        public function buscarID($id){
+            $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = $id");
+            return $query;
+        }
+        
+        public function alterarUsuario($campo, $valor, $id){
+            $query = mysql_query("UPDATE usuario SET $campo = '$valor' where cod_usuario = '$id' ");
+            
             return $query;
         }
         
