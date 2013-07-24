@@ -1,49 +1,51 @@
 <?php
     require_once('../bean/bean.php');
-    require_once('../dao/UsuarioDAO.php');
+    require_once('../dao/ContaDAO.php');
     
     class operacoesHandler{
         
-        public $msg, $class;
-        
-        private $usuario, $usuarioDAO;
+        public $msg, $color, $nome;
+        private $usuario, $contaDAO, $saldoOff, $saldoOn;
     
-        function operacoesHandler(){
+        function operacoesHandler($id){
             
-            $this->usuarioDAO = new UsuarioDAO();
+            $this->contaDAO = new ContaDAO();
             
             $this->usuario = new usuario();
-            $this->usuario->setNome(utf8_decode($_POST['nome']));
-            $this->usuario->setLogin($_POST['login']);
-            $this->usuario->setSenha($_POST['senha']);
-            $this->usuario->setEmail($_POST['email']);
-            $this->usuario->setTelefone($_POST['telefone']);
-            $this->usuario->setGrupo($_POST['grupo']);
+            $this->usuario->setId($_GET['id']);
+            $this->usuario->setDesc($_POST['descricao']);
+            $this->usuario->setTipo($_POST['tipo']);
+            $this->usuario->setValor($_POST['valor']);
+            $this->usuario->setLogin($id);
+            
+            $this->buscarUsuario($this->usuario->getId());
             
             if(isset($_POST['acao'])){
                 $this->cadastrar();
             }
+            
         }
         
-        function validarDados(){
-            $res = $this->usuarioDAO->recuperarUsuario($this->usuario->getLogin(), $this->usuario->getEmail());
-            return (mysql_num_rows($res)>0);
+        function buscarUsuario($id){
+            $query = $this->contaDAO->buscarUsuario($id);
+            $row = mysql_fetch_array($query);
+            $this->nome = $row['nome'];
+            $this->saldo = $row['saldo'];
         }
                 
         function cadastrar(){
-            if(!$this->validarDados()){
-                $query = $this->usuarioDAO->cadastrar($this->usuario);
-                if($query){
-                    $this->class = "text-success";
-                    $this->msg = "Cadastro realizado com sucesso!";
-                }else{
-                    $this->class = "text-error";
-                    $this->msg = "Erro ao cadastrar!";
-                }
+            $query = $this->contaDAO->cadastrar($this->usuario);
+            if($query){
+                $this->msg .= "<div class='alert alert-success'>";
+                $this->msg .= "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+                $this->msg .= "<b>Cadastro realizado com sucesso!</b>";
+                $this->msg .= "</div>";
             }else{
-                $this->class = "text-error";
-                $this->msg = "Login/Email já existente!";
+                $this->msg .= "<div class='alert alert-error'>";
+                $this->msg .= "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+                $this->msg .= "<b>Erro ao Cadastrar!</b>";
+                $this->msg .= "</div>";
             }
         }
-    }
+    }        
 ?>

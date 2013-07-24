@@ -29,7 +29,7 @@
         }
         
         public function excluirUsuario($id){
-            $query = mysql_query("DELETE FROM usuario WHERE cod_usuario = '$id'");
+            $query = mysql_query("DELETE FROM usuario WHERE cod_usuario = $id");
             return $query;
         }
         

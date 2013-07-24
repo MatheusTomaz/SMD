@@ -2160,6 +2160,11 @@ table {
   background-color: #f5f5f5;
 }
 
+.table-hover2 tbody tr:hover > td,
+.table-hover2 tbody tr:hover > th {
+  background-color: #f5f5f5;
+}
+
 table td[class*="span"],
 table th[class*="span"],
 .row-fluid table td[class*="span"],

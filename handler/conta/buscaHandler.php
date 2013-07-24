@@ -51,7 +51,5 @@
                 $this->msg = "<b>Nenhum Resultado!</b>";
             }
         }
-        
-        
     }
 ?>

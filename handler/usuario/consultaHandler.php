@@ -49,7 +49,7 @@
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['grupo']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
                         $this->relatorio .= "</tr>";
                     }
@@ -63,7 +63,7 @@
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row["nome"]}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php'><i class='icon-cog'></i></a></td>";
+                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
                         $this->relatorio .= "</tr>";
                     }
                 }
@@ -83,6 +83,9 @@
             if($res){
                 $this->class = 'text-success';
                 $this->msg = 'Usuário Excluído com sucesso!';
+            }else{
+                $this->class = 'text-error';
+                $this->msg = 'Não foi possível excluir o usuário!';
             }
         }
     }

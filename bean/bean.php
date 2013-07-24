@@ -1,7 +1,31 @@
 <?php
     class Usuario{
         
-        private $id, $nome, $login, $senha, $email, $telefone, $grupo;
+        private $id, $nome, $login, $senha, $email, $telefone, $grupo, $desc, $valor, $cod_usuario_on, $cod_usuario_off, $data_operacao, $tipo;
+        
+        public function getCodOn() {
+            return $this->cod_usuario_on;
+        }
+
+        public function setCodOn($cod_usuario_on) {
+            $this->cod_usuario_on = $cod_usuario_on;
+        }
+        
+        public function getCodOff() {
+            return $this->cod_usuario_off;
+        }
+
+        public function setCodOff($cod_usuario_off) {
+            $this->cod_usuario_off = $cod_usuario_off;
+        }
+        
+        public function getData() {
+            return $this->data_operacao;
+        }
+
+        public function setData($data_operacao) {
+            $this->data_operacao = $data_operacao;
+        }
         
         public function getId() {
             return $this->id;
@@ -59,24 +83,28 @@
             $this->grupo = $grupo;
         }
 
-        /*        
-        function getUsuario(){
-            $getUsuario = mysql_query("SELECT * FROM usuario WHERE nome like '%$this->nome%'");
-            while($row = mysql_fetch_assoc($getUsuario)){
-                $this->id = $row["cod_usuario"];
-                $this->nome = utf8_encode($row["nome"]);
-                $this->login = $row["login"];
-                $this->email = $row["email"];
-                $this->telefone = $row["telefone"];
-                $this->grupo = $row["grupo"];
-                
-                $this->relatorio .= "<td>$this->id</td>";
-                $this->relatorio .= "<td>$this->nome</td>";
-                $this->relatorio .= "<td>$this->login</td>";
-                $this->relatorio .= "<td>$this->email</td>";
-                
-                print_r($this->relatorio);
-            }
-        }*/
+        public function getDesc() {
+            return $this->desc;
+        }
+
+        public function setDesc($desc) {
+            $this->desc = $desc;
+        }
+        
+        public function getValor() {
+            return $this->valor;
+        }
+
+        public function setValor($valor) {
+            $this->valor = $valor;
+        }
+        
+        public function getTipo() {
+            return $this->tipo;
+        }
+
+        public function setTipo($tipo) {
+            $this->tipo = $tipo;
+        }
     }
 ?>
