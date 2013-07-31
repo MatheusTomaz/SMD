@@ -84,5 +84,23 @@
             ");
             return $query;
         }
+        
+        public function buscaExtrato($id, $data_inicio, $data_fim){
+            $query = mysql_query("
+                SELECT
+                    u1.nome as nome_on, op.cod_usuario_on, u2.nome as nome_off,
+                    op.cod_usuario_off, op.tipoOperacoes, op.descricao, op.valor, 
+                    op.data_operacao
+                FROM
+                    operacoes as op
+                LEFT OUTER JOIN usuario as u1 ON u1.cod_usuario = op.cod_usuario_on
+                LEFT OUTER JOIN usuario as u2 on u2.cod_usuario = op.cod_usuario_off
+                WHERE
+                    (op.cod_usuario_on = '$id' OR op.cod_usuario_off = '$id')
+                    AND op.data_operacao between '$data_inicio' and '$data_fim'
+                ORDER BY op.data_operacao ASC
+            ");
+            return $query;
+        }
     }
 ?>

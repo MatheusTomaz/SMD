@@ -21,7 +21,7 @@
     	<div class="hero-unit">
             <h1><?=$login->nome;?></h1>
             <br/>
-                Saldo:<br/><input type="text" disabled value="R$ <?=$usuarioD->saldo;?>" style="color:<?=$usuarioD->color;?>;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='#'" name="extrato">Extrato</button>
+                Saldo:<br/><input type="text" disabled value="R$ <?=$usuarioD->saldo;?>" style="color:<?=$usuarioD->color;?>;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='../conta/extrato.php'" name="extrato">Extrato</button>
             <br/>
             <hr/>
         </div>

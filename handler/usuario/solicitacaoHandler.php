@@ -8,7 +8,7 @@
     class solicitacaoHandler{
         
         public $msg, $color, $nome, $saldoOff, $saldoOn ;
-        private $usuario, $contaDAO, $saldo;
+        private $usuario, $contaDAO, $saldo, $saldoOp;
     
         function solicitacaoHandler(){
             
@@ -46,8 +46,9 @@
             $row = mysql_fetch_array($query);
             $this->nome = $row['nome'];
             $this->saldo = $row['saldo'];
+            $this->saldoOp = $row['saldo'];
         }
-                
+        
         function cadastrar(){
             $query = $this->contaDAO->cadastrar($this->usuario);
             if($query){
@@ -150,22 +151,6 @@
             $saldo = $row2['saldo'];
             $this->saldoOn = $saldo - $valor;
         }
-        /*
-        function buscaSolicitacao($id){
-            $query = $this->contaDAO->buscaSolicitacao($id);
-            $this->relatorio .= "<table class='table table-hover'>";
-            while ($row = mysql_fetch_array($query)){
-                $this->relatorio .= "<tr class='info'>";
-                $this->relatorio .= "<td>{$row['nome']}</td>";
-                $this->relatorio .= "<td>{$row['descricaoTipo']}</td>";
-                $this->relatorio .= "<td>{$row['descricao']}</td>";
-                $this->relatorio .= "<td>R$ {$row['valor']}</td>";
-                //$this->relatorio .= "<td>{$row['data_operacao']}</td>";
-                $this->relatorio .= "<td><a class='btn' name='confirmar' title='Confirmar' href='smd_principal.php?&acao=1&solicitacao={$row['cod_solicitacao']}'><i class='icon-ok'></i></a></td>";
-                $this->relatorio .= "<td><a class='btn' name='cancelar' title='Cancelar' href='smd_principal.php?&acao=0'><i class='icon-remove'></i></a></td>";
-                $this->relatorio .= "</tr>";
-            }
-            $this->relatorio .= "</table>";
-        }*/
+        
     }
 ?>

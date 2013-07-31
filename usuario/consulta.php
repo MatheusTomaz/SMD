@@ -35,7 +35,7 @@
                 <div class="text-center">
                     <input name="usuario_busca" type="text" class="input-medium search-query">
                     <input type="hidden" value="getUsuario" name="acao"/>
-                    <input name="buscar" type="submit" class="btn" value="Buscar" onClick="javascript:confirm()">
+                    <input name="buscar" type="submit" class="btn" value="Buscar">
                     <input name="voltar" type="button" class="btn" value="Voltar" onClick="location.href='../assets/smd_principal.php'">
                 </div>
                 
