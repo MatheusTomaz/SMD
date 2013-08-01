@@ -1,6 +1,7 @@
 <?php
     require_once('../bean/bean.php');
     require_once('../dao/UsuarioDAO.php');
+    require_once('../class/string.class');
     
     class consultaHandler{
         
@@ -11,7 +12,13 @@
             $this->usuarioDAO = new UsuarioDAO();
             
             $this->usuario = new Usuario();
-            $this->usuario->setNome(utf8_decode($_POST['usuario_busca']));
+            
+            if($_POST['usuario_busca']==null){
+                $nome = " ";
+            }else{
+                $nome = stringB($_POST['usuario_busca']);
+            }
+            $this->usuario->setNome($nome);
             
             if(isset($_GET['id'])){
                 $id = $_GET['id'];

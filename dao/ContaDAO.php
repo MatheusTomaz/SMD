@@ -50,11 +50,17 @@
         
         public function procurarOperacao($id, $usuario, $tipo){
             $query = mysql_query("
-                SELECT * FROM operacoes WHERE $usuario = '$id' and tipoOperacoes = '$tipo' ORDER BY data_operacao DESC LIMIT 1
+                SELECT * FROM operacoes WHERE $usuario = '$id' and tipoOperacoes = '$tipo' ORDER BY cod_operacao DESC LIMIT 1
             ");
             return $query;
         }
         
+        public function buscaTodos(){
+            $query = mysql_query("SELECT * FROM usuario ORDER BY cod_usuario ASC");
+            return $query;
+        }
+
+
         public function selecionaID($id){
             $query = mysql_query("SELECT * FROM usuario WHERE cod_usuario = '$id'");
             return $query;
@@ -106,6 +112,14 @@
         public function operacaoId($idOn, $idOff){
             $query = mysql_query("SELECT * FROM operacoes WHERE (cod_usuario_on = '$idOn' AND cod_usuario_off = '$idOff')
                     OR (cod_usuario_on = '$idOff' AND cod_usuario_off = '$idOn')
+                    ORDER BY data_operacao ASC");
+            return $query;
+        }
+        
+        public function solicitacaoId($idOn, $idOff){
+            $query = mysql_query("SELECT * FROM solicitacao WHERE ((cod_usuario_on = '$idOn' AND cod_usuario_off = '$idOff')
+                    OR (cod_usuario_on = '$idOff' AND cod_usuario_off = '$idOn'))
+                    AND ativo = 1
                     ORDER BY data_operacao ASC");
             return $query;
         }

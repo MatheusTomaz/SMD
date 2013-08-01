@@ -29,11 +29,13 @@
             <div class="panel-heading">
                 QUEM ME DEVE?
             </div>
+            <?=$usuarioD->relatorio1;?>
         </div>
         <div class="panel panel-danger" style="width:40%; margin-right:60px; float: right;">
             <div class="panel-heading">
                 PRA QUEM EU DEVO?
             </div>
+            <?=$usuarioD->relatorio2;?>
         </div>
     </body>
 </html>

@@ -34,8 +34,8 @@
                     <tr>
                         <td align='center' colspan='5'>
                             <select name='tipo'>
-                                <option value="1">Empréstimo</option>
-                                <option value="2">Pagamento</option>
+                                <option value="1">Emprestei</option>
+                                <option value="2">Paguei</option>
                             </select>
                         </td>
                     </tr>

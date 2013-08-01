@@ -44,19 +44,19 @@
                 $this->relatorio .= '</thead>';
                 while ($row = mysql_fetch_array($query)) {
                     if($row['cod_usuario_on']==$this->usuario->getId() && $row['tipoOperacoes']==1){
-                        $tipo = "Emprestado a";
+                        $tipo = "Emprestei a";
                         $class = "success";
                         $nome = $row['nome_off'];
                     }elseif($row['cod_usuario_on']==$this->usuario->getId() && $row['tipoOperacoes']==2){
-                        $tipo = "Pago a";
+                        $tipo = "Paguei a";
                         $class = "error";
                         $nome = $row['nome_off'];
                     }elseif($row['cod_usuario_off']==$this->usuario->getId() && $row['tipoOperacoes']==1){
-                        $tipo = "Empréstimo de";
+                        $tipo = "Peguei emprestado de";
                         $class = "error";
                         $nome = $row['nome_on'];
                     }elseif($row['cod_usuario_off']==$this->usuario->getId() && $row['tipoOperacoes']==2){
-                        $tipo = "Pagamento de";
+                        $tipo = "Fui pago por";
                         $class = "success";
                         $nome = $row['nome_on'];
                     }

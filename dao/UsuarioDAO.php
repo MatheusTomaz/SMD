@@ -29,7 +29,7 @@
         }
         
         public function buscarUsuario($nome){
-            $query = mysql_query("SELECT * FROM usuario WHERE nome like '%$nome%' and nome != 'Administrador'");
+            $query = mysql_query("SELECT * FROM usuario WHERE nome REGEXP '$nome' and nome != 'Administrador'");
             return $query;
         }
         

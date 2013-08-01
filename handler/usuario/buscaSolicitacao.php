@@ -14,11 +14,16 @@
             $query = $this->contaDAO->buscaSolicitacao($id);
             $relatorio .= "<table class='table table-hover'>";
             while ($row = mysql_fetch_array($query)){
+                if($row['descricaoTipo'] == "Empréstimo"){
+                    $tipo = "emprestou-lhe";
+                }else{
+                    $tipo = "pagou-lhe";
+                }
                 $relatorio .= "<tr class='info'>";
                 $relatorio .= "<td>{$row['nome']}</td>";
-                $relatorio .= "<td>{$row['descricaoTipo']}</td>";
-                $relatorio .= "<td>{$row['descricao']}</td>";
+                $relatorio .= "<td>{$tipo}</td>";
                 $relatorio .= "<td>R$ {$row['valor']}</td>";
+                $relatorio .= "<td>{$row['descricao']}</td>";
                 //$this->relatorio .= "<td>{$row['data_operacao']}</td>";
                 $relatorio .= "<td><a class='btn' name='confirmar' title='Confirmar' href='smd_principal.php?&acao=1&solicitacao={$row['cod_solicitacao']}'><i class='icon-ok'></i></a></td>";
                 $relatorio .= "<td><a class='btn' name='cancelar' title='Cancelar' href='javascript:del({$row['cod_solicitacao']})'><i class='icon-remove'></i></a></td>";
