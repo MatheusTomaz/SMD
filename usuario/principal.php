@@ -3,7 +3,7 @@
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','User');
 ?>
 <!DOCTYPE html>
 <html>

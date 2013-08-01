@@ -3,8 +3,11 @@
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
     
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
+    require_once BASE_DIR . 'handler' . DS . 'menuHandler.php';
     
     $login = new LoginHandler();
+    $login->verificar('Admin','User');
+    $menu = new menuHandler($login->grupo);
 ?>
 
 <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
@@ -24,21 +27,8 @@
         <div class="navbar-inner" style="width:80%; padding:0 10% 0 10%;">
             <div class="container">  
                 <ul class="nav">
-                    <a class="brand" href="#"><b>SMD</b></a>  
-                    <li><a href="../assets/smd_principal.php" target="frame"><i class="icon-home"></i> Home</a></li>  
-                    <li class="dropdown" id="accountmenu">  
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuário <b class="caret"></b></a>  
-                        <ul class="dropdown-menu">  
-                            <li class="text-left"><a href="cadastro.php" target="frame">Cadastro</a></li>  
-                            <li class="text-left"><a href="consulta.php" target="frame">Consulta</a></li>  
-                        </ul>
-                    </li>
-                    <li class="dropdown" id="accountmenu">  
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta <b class="caret"></b></a>  
-                        <ul class="dropdown-menu">  
-                            <li class="text-left"><a href="../conta/busca.php" target="frame">Busca</a></li>  
-                        </ul>
-                    </li>
+                    <a class="brand" href="../assets/smd_principal.php" target="frame"><b>SMD</b></a>  
+                    <?=$menu->menu;?>
                 </ul>  
             </div>  
         </div>  

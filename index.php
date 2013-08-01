@@ -78,7 +78,7 @@
     <body>
         <div class="container">
             <form class="form-signin" action="index.php" method="post">
-                <input type="hidden" value="logar" name="acao"/>
+                <input type="hidden" value="logar" name="x"/>
                 <h2 class="form-signin-heading">Entrar</h2>
                 <div align="center" class="loader" style="display: none;"><img src="assets/bootstrap/img/loader.gif" alt="Carregando" /></div>
                 <div align="center" class="text-error"><?=$login->msg;?></div>

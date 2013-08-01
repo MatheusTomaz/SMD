@@ -21,7 +21,7 @@
             $this->usuario->setLogin($_POST['login']);
             $this->usuario->setSenha($_POST['senha']);
                         
-            if(isset($_POST['acao'])){
+            if(isset($_POST['x'])){
                 $this->autenticar();
             }
             
@@ -48,9 +48,12 @@
             $this->grupo = $row["grupo"];
         }
                 
-        function verificar(){
-            if (!$this->login->verificar('../index.php'))
+        function verificar($grupo1,$grupo2){
+            if (!$this->login->verificar('../index.php')){
                 exit;
+            }elseif($this->grupo != "$grupo1" && $this->grupo != "$grupo2"){
+                header("Location:../usuario/principal.php");
+            }
         }
         
         function logout($logout){

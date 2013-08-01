@@ -15,29 +15,25 @@
             $this->contaDAO = new ContaDAO();
             $this->usuario = new usuario();
             
-            if(isset($_GET['acao'])){
-                if(isset($_GET['solicitacao'])){
-                    if($_GET['acao']==1){
-                        
-                        $this->cadastrarOperacao($_GET['solicitacao']); 
-                        
-                        if($this->usuario->getTipo()==1){
-                            $this->buscaEmprestado();
-                        }else{
-                            $this->buscaPagamentoOff();
-                        }
-                        $this->atualizaSaldoOff();
-                        
-                        if($this->usuario->getTipo()==1){
-                            $this->buscaEmprestimo();
-                        }else{
-                            $this->buscaPagamentoOn();
-                        }
-                        $this->atualizaSaldoOn();
-                    }elseif($_GET['acao']==0){
-                        $this->contaDAO->atualizaSolicitacao($_GET['solicitacao'], 2);
-                    }
+            if($_GET['acao']==1 && isset($_GET['solicitacao'])){
+
+                $this->cadastrarOperacao($_GET['solicitacao']); 
+
+                if($this->usuario->getTipo()==1){
+                    $this->buscaEmprestado();
+                }else{
+                    $this->buscaPagamentoOff();
                 }
+                $this->atualizaSaldoOff();
+
+                if($this->usuario->getTipo()==1){
+                    $this->buscaEmprestimo();
+                }else{
+                    $this->buscaPagamentoOn();
+                }
+                $this->atualizaSaldoOn();
+            }elseif($_GET['acao']==0){
+                $this->contaDAO->atualizaSolicitacao($_GET['solicitacao'], 2);
             }
         }
         

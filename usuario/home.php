@@ -5,7 +5,7 @@
     require_once('../handler/usuario/homeHandler.php');
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','User');
             
     $usuarioD = new homeHandler($login->id);
 ?>
@@ -24,6 +24,16 @@
                 Saldo:<br/><input type="text" disabled value="R$ <?=$usuarioD->saldo;?>" style="color:<?=$usuarioD->color;?>;"> <button class="btn" style="vertical-align:top;" type="button" onClick="location.href='../conta/extrato.php'" name="extrato">Extrato</button>
             <br/>
             <hr/>
+        </div>
+        <div class="panel panel-success" style="width:40%; margin-left:60px; float: left;">
+            <div class="panel-heading">
+                QUEM ME DEVE?
+            </div>
+        </div>
+        <div class="panel panel-danger" style="width:40%; margin-right:60px; float: right;">
+            <div class="panel-heading">
+                PRA QUEM EU DEVO?
+            </div>
         </div>
     </body>
 </html>

@@ -6,7 +6,7 @@
     require_once BASE_DIR . 'handler' . DS . 'conta' . DS . 'extratoHandler.php';
     
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','User');
     
     $usuarioD = new extratoHandler($login->id);
 ?>

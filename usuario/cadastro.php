@@ -4,7 +4,7 @@
     define( 'BASE_DIR', dirname(dirname( __FILE__ )) . DS );
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','Admin');
     $usuarioD = new cadastroHandler();
 ?>
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>SMD</title>
         <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />  
+        <script type="text/javascript" src="../assets/bootstrap/jquery/jquery.js"></script>  
+        <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.js"></script> 
     </head>
     <body class="fundo">
         <div class="hero-unit2">

@@ -4,7 +4,7 @@
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     require_once BASE_DIR . 'handler' . DS . 'usuario' . DS . 'confContaHandler.php';
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','User');
     
     $usuarioD = new confHandler($login->id);
 ?>

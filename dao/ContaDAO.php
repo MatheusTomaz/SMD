@@ -102,5 +102,12 @@
             ");
             return $query;
         }
+        
+        public function operacaoId($idOn, $idOff){
+            $query = mysql_query("SELECT * FROM operacoes WHERE (cod_usuario_on = '$idOn' AND cod_usuario_off = '$idOff')
+                    OR (cod_usuario_on = '$idOff' AND cod_usuario_off = '$idOn')
+                    ORDER BY data_operacao ASC");
+            return $query;
+        }
     }
 ?>

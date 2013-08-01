@@ -34,15 +34,21 @@
             if(!$this->validarDados()){
                 $query = $this->usuarioDAO->cadastrar($this->usuario);
                 if($query){
-                    $this->class = "text-success";
-                    $this->msg = "Cadastro realizado com sucesso!";
+                    $this->msg .= "<div class='alert alert-success'>";
+                    $this->msg .= "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+                    $this->msg .= "<b>Cadastro realizado com sucesso!</b>";
+                    $this->msg .= "</div>";
                 }else{
-                    $this->class = "text-error";
-                    $this->msg = "Erro ao cadastrar!";
+                    $this->msg .= "<div class='alert alert-error'>";
+                    $this->msg .= "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+                    $this->msg .= "<b>Erro no Cadastro!</b>";
+                    $this->msg .= "</div>";
                 }
             }else{
-                $this->class = "text-error";
-                $this->msg = "Login/Email já existente!";
+                $this->msg .= "<div class='alert alert-error'>";
+                $this->msg .= "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+                $this->msg .= "<b>Login/E-mail já existente!</b>";
+                $this->msg .= "</div>";
             }
         }
     }

@@ -4,7 +4,7 @@
     require_once('../handler/conta/buscaHandler.php');
     require_once BASE_DIR . 'handler' . DS . 'logarHandler.php';
     $login = new LoginHandler();
-    $login->verificar();
+    $login->verificar('Admin','Admin');
     
     $usuarioD = new buscaHandler();
 ?>

@@ -7,7 +7,7 @@
         public $relatorio, $msg, $numRes, $class;
         private $usuario, $usuarioDAO;
         
-        function consultaHandler($grupo){
+        function consultaHandler($grupo,$usuarioId){
             $this->usuarioDAO = new UsuarioDAO();
             
             $this->usuario = new Usuario();
@@ -18,13 +18,13 @@
                 $this->excluirUsuario($id);
             }
             
-            if(isset($_POST['acao'])){
-                $this->buscarUsuario($grupo);
+            if(isset($_POST['action'])){
+                $this->buscarUsuario($grupo, $usuarioId);
                 
             }
         }
         
-        function buscarUsuario($grupo){
+        function buscarUsuario($grupo,$usuarioId){
             $query = $this->usuarioDAO->buscarUsuario($this->usuario->getNome());
             $numRes = mysql_num_rows($query);
             $this->numRes = $numRes;
@@ -34,7 +34,6 @@
                 $this->relatorio .= "<tr>";
                 $this->relatorio .= "<th style='text-align:center; vertical-align:middle;'>Conta</th>";
                 $this->relatorio .= "<th>Nome</th>";
-                
                 if($grupo == 'Admin'){
                     $this->relatorio .= "<th>Login</th>";
                     $this->relatorio .= "<th>E-mail</th>";
@@ -48,9 +47,15 @@
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['login']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['grupo']}</td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
+                        if($usuarioId != $row['cod_usuario']){
+                            $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../usuario/detalhes.php?&id={$row['cod_usuario']}'><i class='icon-plus-sign'></i></a></td>";
+                            $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
+                            $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='javascript:del({$row['cod_usuario']})'><i class='icon-remove'></i></a></td>";
+                        }else{
+                            $this->relatorio .= "<td>&nbsp;</td>";
+                            $this->relatorio .= "<td>&nbsp;</td>";
+                            $this->relatorio .= "<td>&nbsp;</td>";
+                        }
                         $this->relatorio .= "</tr>";
                     }
                 }elseif($grupo == 'User') {
@@ -62,8 +67,13 @@
                         $this->relatorio .= "<td style='vertical-align:middle; text-align:center;'>{$row['cod_usuario']}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row["nome"]}</td>";
                         $this->relatorio .= "<td style='vertical-align:middle;'>{$row['email']}</td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='#'><i class='icon-plus-sign'></i></a></td>";
-                        $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
+                        if($usuarioId != $row['cod_usuario']){
+                            $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../usuario/detalhes.php?&id={$row['cod_usuario']}'><i class='icon-plus-sign'></i></a></td>";
+                            $this->relatorio .= "<td style='vertical-align:middle;'><a class='btn' href='../conta/operacoes.php?&id={$row['cod_usuario']}' title='Operações'><i class='icon-cog'></i></a></td>";
+                        }else{
+                            $this->relatorio .= "<td>&nbsp;</td>";
+                            $this->relatorio .= "<td>&nbsp;</td>";
+                        }
                         $this->relatorio .= "</tr>";
                     }
                 }
