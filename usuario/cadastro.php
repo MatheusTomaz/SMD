@@ -31,11 +31,11 @@
                         </tr>
                         <tr>
                             <td>Login:</td>
-                            <td><input name="login" id="login" type="text" size="8" maxlength="8"></td>
+                            <td><input name="login" id="login" type="text" size="8" maxlength="12"></td>
                         </tr>
                         <tr>
                             <td>Senha:</td>
-                            <td><input name="senha" id="senha" type="password" size="8" maxlength="8"></td>
+                            <td><input name="senha" id="senha" type="password" size="8" maxlength="12"></td>
                         </tr>
                         <tr>
                             <td>E-mail:</td>

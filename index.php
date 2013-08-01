@@ -83,8 +83,8 @@
                 <div align="center" class="loader" style="display: none;"><img src="assets/bootstrap/img/loader.gif" alt="Carregando" /></div>
                 <div align="center" class="text-error"><?=$login->msg;?></div>
                 <br>
-                <input type="text" class="input-block-level"  id="login" name="login" placeholder="Login">
-                <input type="password" class="input-block-level"  id="senha" name="senha" placeholder="Senha">
+                <input type="text" class="input-block-level"  id="login" name="login" placeholder="Login" maxlength="12">
+                <input type="password" class="input-block-level"  id="senha" name="senha" placeholder="Senha" maxlength="12">
                 <button class="btn btn-large btn-primary" type="submit" >Entrar</button>
             </form>
         </div> 
